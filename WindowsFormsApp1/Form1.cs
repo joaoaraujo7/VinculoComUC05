@@ -52,8 +52,20 @@ namespace WindowsFormsApp1
                 // Extrair Texto e coloca dentro do vetor linhas
                 string[] linhas = textoLido.Split('\n');
 
-                foreach (string linha in linhas) { 
-                    lboDados.Items.Add(linha);
+                for (int i = 0; i < linhas.Length; i += 4)
+                {
+                    if (i + 3 > linhas.Length)
+                    {
+                        break;
+                    }
+
+                    string nome = linhas[i];
+                    char sexo = linhas[i + 1].ToString()[0];
+                    string escolaridade = linhas[i + 2];
+                    string classe = linhas[i + 3];
+
+                    Pessoa pessoa = new Pessoa(nome, sexo, escolaridade, classe);
+                    lboDados.Items.Add(pessoa.Exibicao());
                 }
 
             } // Caso acontença qualquer erro na linha no try, ele irá cair nesse bloco 

@@ -42,12 +42,16 @@
             // 
             // btnObterDados
             // 
+            this.btnObterDados.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnObterDados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnObterDados.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnObterDados.ForeColor = System.Drawing.Color.Transparent;
             this.btnObterDados.Location = new System.Drawing.Point(87, 299);
             this.btnObterDados.Name = "btnObterDados";
             this.btnObterDados.Size = new System.Drawing.Size(116, 23);
             this.btnObterDados.TabIndex = 1;
             this.btnObterDados.Text = "Extrair Dados";
-            this.btnObterDados.UseVisualStyleBackColor = true;
+            this.btnObterDados.UseVisualStyleBackColor = false;
             this.btnObterDados.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
