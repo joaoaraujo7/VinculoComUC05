@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
     /// <param name="sexo">Sexo da pessoa na base de dados </param>
     /// <param name="escolaridade">Escolaridade da pessoa na base de dados </param>
     /// <param name="classe">Classe da pessoa na base de dados </param>
-    internal class Pessoa
+    public class Pessoa
     {
         /* modificadores de acesso c#:
             private -> visível apenas dentro da classe
@@ -21,22 +21,40 @@ namespace WindowsFormsApp1
             public -> visível para todos
         */
 
-        private string _nome;
-        private char _sexo;
-        private string _escolaridade;
-        private string _classe;
+        public string Nome { get; private set; }
+        public char Sexo { get; private set; }
+        public string Escolaridade { get; private set; }
+        public string Classe { get; private set; }
 
         public Pessoa(string nome, char sexo, string escolaridade, string classe)
         {
-            _nome = nome;
-            _sexo = sexo;
-            _escolaridade = escolaridade;
-            _classe = classe;
+            Nome = nome;
+            Sexo = sexo;
+            Escolaridade = escolaridade;
+            Classe = classe;
+        }
+
+        /// <summary>
+        /// Atualiza os campos Nome, Escolaridade, Sexo e Classe com os valores fornecidos.
+        /// </summary>
+        /// <param name="nome">Novo valor para o campo Nome.</param>
+        /// <param name="sexo">Novo valor para o campo Sexo.</param>
+        /// <param name="escolaridade">Novo valor para o campo Escolaridade.</param>
+        /// <param name="clase">Novo valor para o campo Classe.</param>
+
+        public void AtualizarCampos(string nome, char sexo, string escolaridade, string clase)
+        {
+            Nome = nome;
+            Sexo = sexo;
+            Escolaridade = escolaridade;
+            Classe = clase;
         }
 
         public string Exibicao()
         {
-            return $"{_nome} - {_sexo} - {_escolaridade} - {_classe}";
+            return $"{Nome} - {Sexo} - {Escolaridade} - {Classe}";
         }
+
+        public override string ToString() => $"{Nome} - {Sexo} - {Escolaridade} - {Classe}";
     }
 }
