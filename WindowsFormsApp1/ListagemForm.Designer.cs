@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Form1
+    partial class ListagemForm
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -39,6 +39,7 @@
             this.lboDados.Name = "lboDados";
             this.lboDados.Size = new System.Drawing.Size(640, 238);
             this.lboDados.TabIndex = 0;
+            this.lboDados.SelectedIndexChanged += new System.EventHandler(this.lboDados_SelectedIndexChanged);
             // 
             // btnObterDados
             // 

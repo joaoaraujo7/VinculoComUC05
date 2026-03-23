@@ -11,13 +11,14 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class ListagemForm : Form
     {
         private OpenFileDialog leitura = new OpenFileDialog();
         private SaveFileDialog salvamento = new SaveFileDialog();
         private string caminho;
+        protected Pessoa pessoa = null;
 
-        public Form1()
+        public ListagemForm()
         {
             InitializeComponent();
         }
@@ -29,6 +30,12 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            /* Filtrar o nome do arquivo
+             nomenclatura: nome-do-arquivo que aparece para o usuário | * .nome da extensão
+             | (pipeline): Serve para separar o conteúdo entre 
+             * : Serve para dizer que ele aceita qualquer coisa 
+             */
+            leitura.Filter = "Arquivo TXT|*.txt";
             // Voltar nessa linha - 1
             leitura.Title = "Selecione o arquivo que contém os dados";
 
@@ -40,9 +47,14 @@ namespace WindowsFormsApp1
             }
 
             // Obtendo o caminho do arquivo
-            caminho = leitura.FileName; 
+            caminho = leitura.FileName;
 
             // Tenta executar o trecho do código
+            LerArquivo(caminho);
+        }
+
+        public void LerArquivo(string caminho)
+        {
             try
             {
                 // Importar a biblioteca: System.IO (manipulação de arquivos)
@@ -65,14 +77,46 @@ namespace WindowsFormsApp1
                     string classe = linhas[i + 3];
 
                     Pessoa pessoa = new Pessoa(nome, sexo, escolaridade, classe);
-                    lboDados.Items.Add(pessoa.Exibicao());
+                    lboDados.Items.Add(pessoa);
                 }
-
             } // Caso acontença qualquer erro na linha no try, ele irá cair nesse bloco 
-            catch (Exception erro) {
+            catch (Exception erro)
+            {
                 // Mostra o erro
                 MessageBox.Show(erro.Message);
             }
+        }
+
+
+
+        private void lboDados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            Pessoa pessoaExistente = (sender as ListBox).SelectedItem as Pessoa;
+
+            if (pessoaExistente == null)
+            {
+                return;
+            }
+
+            Pessoa novaPessoa;
+            using (CadastroForm cadastroForm = new CadastroForm(pessoaExistente))
+            {
+                cadastroForm.ShowDialog();
+                novaPessoa = cadastroForm.GetPessoa();
+            }
+
+            lboDados.ClearSelected();
+
+            for (int i = 0; i < lboDados.Items.Count; i++)
+            {
+                if (lboDados.Items[i] == pessoaExistente)
+                {
+                    lboDados.Items[i] = novaPessoa;
+                    break;
+                }
+            }
+            lboDados.Update();
         }
     }
 }
