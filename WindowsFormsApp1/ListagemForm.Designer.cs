@@ -41,9 +41,7 @@
             // lboDados
             // 
             this.lboDados.FormattingEnabled = true;
-            this.lboDados.Location = new System.Drawing.Point(52, 29);
             this.lboDados.Name = "lboDados";
-            this.lboDados.Size = new System.Drawing.Size(696, 238);
             this.lboDados.TabIndex = 0;
             this.lboDados.SelectedIndexChanged += new System.EventHandler(this.lboDados_SelectedIndexChanged);
             // 
@@ -53,7 +51,6 @@
             this.btnObterDados.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnObterDados.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnObterDados.ForeColor = System.Drawing.Color.Transparent;
-            this.btnObterDados.Location = new System.Drawing.Point(632, 394);
             this.btnObterDados.Name = "btnObterDados";
             this.btnObterDados.Size = new System.Drawing.Size(116, 23);
             this.btnObterDados.TabIndex = 1;
@@ -61,74 +58,6 @@
             this.btnObterDados.UseVisualStyleBackColor = false;
             this.btnObterDados.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnInserir
-            // 
-            this.btnInserir.BackColor = System.Drawing.Color.Gold;
-            this.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnInserir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInserir.ForeColor = System.Drawing.Color.Black;
-            this.btnInserir.Location = new System.Drawing.Point(296, 394);
-            this.btnInserir.Name = "btnInserir";
-            this.btnInserir.Size = new System.Drawing.Size(116, 23);
-            this.btnInserir.TabIndex = 2;
-            this.btnInserir.Text = "Inserir";
-            this.btnInserir.UseVisualStyleBackColor = false;
-            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.ForeColor = System.Drawing.Color.Transparent;
-            this.btnSalvar.Location = new System.Drawing.Point(52, 394);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(116, 23);
-            this.btnSalvar.TabIndex = 3;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = false;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
-            // btnSalvarComo
-            // 
-            this.btnSalvarComo.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnSalvarComo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSalvarComo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvarComo.ForeColor = System.Drawing.Color.Transparent;
-            this.btnSalvarComo.Location = new System.Drawing.Point(174, 394);
-            this.btnSalvarComo.Name = "btnSalvarComo";
-            this.btnSalvarComo.Size = new System.Drawing.Size(116, 23);
-            this.btnSalvarComo.TabIndex = 4;
-            this.btnSalvarComo.Text = "Salvar Como";
-            this.btnSalvarComo.UseVisualStyleBackColor = false;
-            this.btnSalvarComo.Click += new System.EventHandler(this.btnSalvarComo_Click);
-            // 
-            // lblClasseA
-            // 
-            this.lblClasseA.AutoSize = true;
-            this.lblClasseA.Location = new System.Drawing.Point(49, 299);
-            this.lblClasseA.Name = "lblClasseA";
-            this.lblClasseA.Size = new System.Drawing.Size(55, 13);
-            this.lblClasseA.TabIndex = 5;
-            this.lblClasseA.Text = "lblClasseA";
-            // 
-            // lblClasseC
-            // 
-            this.lblClasseC.AutoSize = true;
-            this.lblClasseC.Location = new System.Drawing.Point(49, 369);
-            this.lblClasseC.Name = "lblClasseC";
-            this.lblClasseC.Size = new System.Drawing.Size(55, 13);
-            this.lblClasseC.TabIndex = 6;
-            this.lblClasseC.Text = "lblClasseC";
-            // 
-            // lblClasseB
-            // 
-            this.lblClasseB.AutoSize = true;
-            this.lblClasseB.Location = new System.Drawing.Point(49, 331);
-            this.lblClasseB.Name = "lblClasseB";
-            this.lblClasseB.Size = new System.Drawing.Size(55, 13);
-            this.lblClasseB.TabIndex = 7;
-            this.lblClasseB.Text = "lblClasseB";
             // 
             // ListagemForm
             // 
@@ -143,7 +72,6 @@
             this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.btnObterDados);
             this.Controls.Add(this.lboDados);
-            this.Name = "ListagemForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

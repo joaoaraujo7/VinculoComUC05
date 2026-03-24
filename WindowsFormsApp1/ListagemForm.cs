@@ -102,14 +102,8 @@ namespace WindowsFormsApp1
         }
 
 
-        /// <summary>
-        /// Função que ao selecionar uma pessoa na lista, posso atualizar ou excluir sua informação
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void lboDados_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Vou obter os dados da pessoa antes de atualizar
             Pessoa pessoaExistente = (sender as ListBox).SelectedItem as Pessoa;
 
             // Valida se o dado selecionado existe
@@ -120,12 +114,9 @@ namespace WindowsFormsApp1
 
             // Cria uma nova entidade de pessoa para obter a atualização dos dados
             Pessoa novaPessoa;
-            using (CadastroForm cadastroForm = new CadastroForm(pessoaExistente)) // Abra o formulário de cadastro da entidade selecionada
             {
                 cadastroForm.ShowDialog();
-                novaPessoa = cadastroForm.Pessoa;
             }
-            // Retiro a seleção no ListBox da pessoa que vai ser atualizada
             lboDados.ClearSelected();
 
             if (novaPessoa == null)
@@ -135,15 +126,14 @@ namespace WindowsFormsApp1
             else
             {
                 // Procuro a pessoa que será atualizada
-                for (int i = 0; i < lboDados.Items.Count; i++)
-                {
+            for (int i = 0; i < lboDados.Items.Count; i++)
+            {
                     // Se encontrar mude
-                    if (lboDados.Items[i] == pessoaExistente)
-                    {
-                        lboDados.Items[i] = novaPessoa; // atribui a nova pessoa ao listbox
-                        break;
-                    }
+                if (lboDados.Items[i] == pessoaExistente)
+                {
+                    break;
                 }
+            }
             }
             // Atualiza o nosso listBOx com as novas informações
             lboDados.Update();

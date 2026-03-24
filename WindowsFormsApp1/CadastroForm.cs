@@ -13,7 +13,6 @@ namespace WindowsFormsApp1
 {
     public partial class CadastroForm : Form
     {
-        public Pessoa Pessoa { get; private set; }
 
         /// <summary>
         /// Construtor para inserção dos dados
@@ -33,7 +32,6 @@ namespace WindowsFormsApp1
         public CadastroForm(Pessoa pessoa)
         {
             InitializeComponent();
-            Pessoa = pessoa;
             txtNome.Text = pessoa.Nome;
             txtEscolaridade.Text = pessoa.Escolaridade;
             rdoFeminino.Checked = pessoa.Sexo is 'F';
@@ -41,6 +39,7 @@ namespace WindowsFormsApp1
             cboClasse.SelectedItem = pessoa.Classe.Substring(0, 8);
         }
 
+        public Pessoa GetPessoa() {return _pessoa;}
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
@@ -48,16 +47,6 @@ namespace WindowsFormsApp1
             char sexo = rdoFeminino.Checked ? 'F' : 'M';
             string escolaridade = txtEscolaridade.Text;
             string classe = cboClasse.SelectedItem as string;
-
-            // Se a pessoa não existir, cria uma nova
-            if (Pessoa == null) { 
-                Pessoa = new Pessoa(nome, sexo, escolaridade, classe); 
-            }
-            else // caso contrário, atualiza
-            {
-                Pessoa.AtualizarCampos(nome, sexo, escolaridade, classe);
-            }
-
             Close();
         }
 
@@ -68,8 +57,6 @@ namespace WindowsFormsApp1
         /// <param name="e"></param>
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Pessoa = null;
-            Close();
         }
     }
 }
